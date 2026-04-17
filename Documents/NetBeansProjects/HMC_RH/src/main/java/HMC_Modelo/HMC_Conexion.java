@@ -131,21 +131,52 @@ public class HMC_Conexion {
 }
 
     public boolean eliminarEmpleado(int idEmpleado) {
-    String sql = "DELETE FROM rh_empleados WHERE id_empleado = ?";
-
-    try (Connection conn = obtenerConexion(); 
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-        
-        ps.setInt(1, idEmpleado);
-
-        int filasAfectadas = ps.executeUpdate();
-        return filasAfectadas > 0; // True si el empleado existía y fue borrado
-        
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
+        String sql = "DELETE FROM rh_empleados WHERE id_empleado = ?";
+    
+        try (Connection conn = obtenerConexion(); 
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setInt(1, idEmpleado);
+    
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0; // True si el empleado existía y fue borrado
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
-}
+
+        public String buscarNominaId(int idNomina) {
+        String nominaEncontrada = "";
+        String sql = "SELECT * FROM vw_nomina_detalle WHERE ID_NOMINA = ?";
+
+        try (Connection conn = obtenerConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idNomina);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                nominaEncontrada = nominaEncontrada + rs.getString("ID_NOMINA") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("ID_EMPLEADO") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("NOMBRE") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("APELLIDO_PATERNO") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("APELLIDO_MATERNO") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("inicio") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("fin") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("sueldo_base") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("bonos") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("descuentos") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("total_pago") + "!";
+                nominaEncontrada = nominaEncontrada + rs.getString("fecha_pago") + "!";
+                return nominaEncontrada;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nominaEncontrada;
+
+    }
+
     
     
 }
