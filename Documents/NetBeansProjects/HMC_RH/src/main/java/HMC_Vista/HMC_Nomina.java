@@ -281,6 +281,26 @@ public class HMC_Nomina extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // Método para transformar AAAA-MM-DD HH:mm:ss a DD/MM/AAAA
+    private String formatearFecha(String fechaBD) {
+        if (fechaBD.isEmpty()) {
+            return "";
+        }
+        try {
+            // 1. Quitamos la hora si existe (cortamos por el espacio)
+            String soloFecha = fechaBD.split(" ")[0];
+            // 2. Dividimos los componentes del año-mes-dia
+            String partes[] = soloFecha.split("-");
+            if (partes.length == 3) {
+                // 3. Reordenamos a DD/MM/AAAA
+                return partes[2] + "/" + partes[1] + "/" + partes[0];
+            }
+        } catch (Exception e) {
+            return fechaBD; // Si algo falla, devuelve la original
+        }
+        return fechaBD;
+    }
+
     private void btnNuevoNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoNomActionPerformed
 
     }//GEN-LAST:event_btnNuevoNomActionPerformed
@@ -298,7 +318,51 @@ public class HMC_Nomina extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarNomActionPerformed
 
     private void btnBuscaNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomActionPerformed
+        HMC_Conexion con = new HMC_Conexion();
+        
+        int iDNominaBuscar = Integer.parseInt(txtIdNom.getText()); 
+        String nominaEncontrada = con.buscarNominaId(iDNominaBuscar);
 
+        if(nominaEncontrada != null && !nominaEncontrada.isEmpty()){
+            String nominaEncontradaBD[] = nominaEncontrada.spit("!");
+
+            java.util.function.Function<String, String> limpiar = (str)
+                    -> (str == null || str.equals("null")) ? "" : str;
+            
+            txtIdNom.setText(limpiar.apply(nominaEncontradaBD[0]));    
+            txtNombreNom.setText(limpiar.apply(nominaEncontradaBD[1]));    
+            txtPaternoNom.setText(limpiar.apply(nominaEncontradaBD[2]));    
+            txtMaternoNom.setText(limpiar.apply(nominaEncontradaBD[3]));    
+            txtInicioPNom.setText(limpiar.apply(nominaEncontradaBD[4]));    
+            txtFinPNom.setText(limpiar.apply(nominaEncontradaBD[5]));    
+            txtSueldoBaseNom.setText(limpiar.apply(nominaEncontradaBD[6]));    
+            txtBonoNom.setText(limpiar.apply(nominaEncontradaBD[7]));    
+            txtDesNom.setText(limpiar.apply(nominaEncontradaBD[8]));    
+            txtTotPagNom.setText(limpiar.apply(nominaEncontradaBD[9]));    
+            //txtFechaPagoNom.setText(limpiar.apply(nominaEncontradaBD[10]));    
+            txtFechaPagoNom.setText(formatearFecha(limpiar.apply(empleadoEncontradoBD[10])));
+
+            //Activo los botones para poder editar o eliminar el valor obtenido.
+            btnEditarNom.setEnabled(true);
+            btnEliminarNom.setEnabled(true);
+
+        } else{
+            JOptionPane.showMessageDialog(this, "Número de ID de nomina no encontrada.");
+            txtIdNom.setText("");    
+            txtNombreNom.setText("");    
+            txtPaternoNom.setText("");    
+            txtMaternoNom.setText("");    
+            txtInicioPNom.setText("");    
+            txtFinPNom.setText("");    
+            txtSueldoBaseNom.setText("");    
+            txtBonoNom.setText("");
+            txtDesNom.setText(""); 
+            txtTotPagNom.setText("");  
+            txtFechaPagoNom.setText("");
+            txtIdNom.requestFocusInWindows();
+            
+        }
+        
     }//GEN-LAST:event_btnBuscaNomActionPerformed
 
 
