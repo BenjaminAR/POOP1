@@ -177,6 +177,31 @@ public class HMC_Conexion {
 
     }
 
-    
+    //Insertar nomina.
+
+    public boolean insertarNomina(int ID_EMPLEADO, String PERIODO_INICIO, String PERIODO_FIN, String SUELDO_BASE, double BONOS, double DESCUENTOS, double TOTAL_PAGO, String FECHA_PAGO) {
+
+        String sql = "INSERT INTO rh_nomina (id_empleado, periodo_inicio, periodo_fin, sueldo_base, bonos, descuentos, total_pago, fecha_pago) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = obtenerConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, ID_EMPLEADO);
+            ps.setString(2, PERIODO_INICIO);
+            ps.setString(3, PERIODO_FIN);
+            ps.setString(4, SUELDO_BASE);
+            ps.setString(5, BONOS);
+            ps.setString(6, DESCUENTOS);
+            ps.setString(7, TOTAL_PAGO);
+            ps.setDouble(8, FECHA_PAGO);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    //Termina insert nomina
     
 }
