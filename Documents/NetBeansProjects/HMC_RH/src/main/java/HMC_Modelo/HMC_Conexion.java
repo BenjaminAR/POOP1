@@ -107,7 +107,7 @@ public class HMC_Conexion {
             return false; // Retorna false si no se encontro el query sql
         }
     }
-                  //                  (idExistente, nombre, apePat, apeMat, email, tel, salario);
+    
     public boolean actualizarEmpleado(int idEmpleado, String NOMBRE, String APELLIDO_PATERNO, String APELLIDO_MATERNO, String TELEFONO, double SALARIO) {
     String sql = "UPDATE rh_empleados SET nombre = ?, apellido_paterno = ?, apellido_materno = ?, telefono = ?, salario = ? WHERE id_empleado = ?";
 
@@ -179,19 +179,19 @@ public class HMC_Conexion {
 
     //Insertar nomina.
 
-    public boolean insertarNomina(int ID_EMPLEADO, String PERIODO_INICIO, String PERIODO_FIN, String SUELDO_BASE, double BONOS, double DESCUENTOS, double TOTAL_PAGO, String FECHA_PAGO) {
+    public boolean insertarNomina(int ID_EMPLEADO, String PERIODO_INICIO, String PERIODO_FIN, double SUELDO_BASE, double BONOS, double DESCUENTOS, double TOTAL_PAGO, String FECHA_PAGO) {
 
         String sql = "INSERT INTO rh_nomina (id_empleado, periodo_inicio, periodo_fin, sueldo_base, bonos, descuentos, total_pago, fecha_pago) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = obtenerConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, ID_EMPLEADO);
+            ps.setInt(1, ID_EMPLEADO);
             ps.setString(2, PERIODO_INICIO);
             ps.setString(3, PERIODO_FIN);
-            ps.setString(4, SUELDO_BASE);
-            ps.setString(5, BONOS);
-            ps.setString(6, DESCUENTOS);
-            ps.setString(7, TOTAL_PAGO);
-            ps.setDouble(8, FECHA_PAGO);
+            ps.setDouble(4, SUELDO_BASE);
+            ps.setDouble(5, BONOS);
+            ps.setDouble(6, DESCUENTOS);
+            ps.setDouble(7, TOTAL_PAGO);
+            ps.setString(8, FECHA_PAGO);
 
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next();
@@ -203,5 +203,35 @@ public class HMC_Conexion {
     }
 
     //Termina insert nomina
+
+
+    //Actulizar Nomnia
+
+    public boolean actualizarNomina(String PERIODO_INICIO, String PERIODO_FIN, double SUELDO_BASE, double BONOS, double DESCUENTOS, double TOTAL_PAGO, string FECHA_PAGO, int ID_NOMINA) {
+    String sql = "UPDATE rh_nomina SET periodo_inicio = ?, periodo_fin = ?, sueldo_base = ?, bonos = ?, descuentos = ?, total_pago = ?, fecha_pago = ? WHERE id_nomina = ?";
+
+    try (Connection conn = obtenerConexion(); 
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        
+        ps.setString(1, PERIODO_INICIO);
+        ps.setString(2, PERIODO_FIN);
+        ps.setDouble(3, SUELDO_BASE);b
+        ps.setDouble(4, BONOS);
+        ps.setDouble(5, DESCUENTOS);
+        ps.setDouble(6, TOTAL_PAGO);
+        ps.setString(7, FECHA_PAGO);
+        ps.setInt(8, ID_NOMINA); // El ID va al final por el WHERE
+
+        int filasAfectadas = ps.executeUpdate();
+        return filasAfectadas > 0; // Retorna true si se actualizó al menos un registro
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
+
+
     
 }
