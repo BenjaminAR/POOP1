@@ -230,7 +230,7 @@ public class HMC_Conexion {
                 }
             }
     public bolean EliminarNomina(int ID_NOMINA) {
-        String sql = "DELETE * FROM rh_nomina WHERE id_nomina = ?";
+        String sql = "DELETE FROM rh_nomina WHERE id_nomina = ?";
 
         try(Connection con = obtenerConexion(); PreparedStatement ps = con.prepareStatement(sql)){
             ps.setInt(1, ID_NOMINA);
