@@ -149,20 +149,20 @@
                       <Component id="txtApellidoPatBuscar" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel5" pref="18" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtApellidoMarBuscar" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtApellidoMarBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel7" pref="18" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtEmailBuscar" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtEmailBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -170,12 +170,12 @@
                       <Component id="txtDepBuscar" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel9" pref="19" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtPuestoBuscar" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtPuestoBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -198,12 +198,12 @@
                       <Component id="txtActivoBuscar" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel13" pref="18" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtTelefonoBuscar" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtTelefonoBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>

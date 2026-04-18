@@ -207,19 +207,19 @@ public class HMC_Conexion {
 
     //Actulizar Nomnia
 
-        public boolean actualizarNomina(String PERIODO_INICIO, String PERIODO_FIN, double SUELDO_BASE, double BONOS, double DESCUENTOS, double TOTAL_PAGO, string FECHA_PAGO, int ID_NOMINA) {
-                String sql = "UPDATE rh_nomina SET periodo_inicio = ?, periodo_fin = ?, sueldo_base = ?, bonos = ?, descuentos = ?, total_pago = ?, fecha_pago = ? WHERE id_nomina = ?";
+        public boolean actualizarNomina(int ID_EMPLEADO, String PERIODO_INICIO, String PERIODO_FIN, double SUELDO_BASE, double BONOS, double DESCUENTOS, double TOTAL_PAGO, String FECHA_PAGO, int ID_NOMINA) {
+                String sql = "UPDATE rh_nomina SET id_empleado = ? ,periodo_inicio = ?, periodo_fin = ?, sueldo_base = ?, bonos = ?, descuentos = ?, total_pago = ?, fecha_pago = ? WHERE id_nomina = ?";
             
                 try (Connection conn = obtenerConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
-                    
-                    ps.setString(1, PERIODO_INICIO);
-                    ps.setString(2, PERIODO_FIN);
-                    ps.setDouble(3, SUELDO_BASE);
-                    ps.setDouble(4, BONOS);
-                    ps.setDouble(5, DESCUENTOS);
-                    ps.setDouble(6, TOTAL_PAGO);
-                    ps.setString(7, FECHA_PAGO);
-                    ps.setInt(8, ID_NOMINA); // El ID va al final por el WHERE
+                    ps.setInt(1, ID_EMPLEADO);
+                    ps.setString(2, PERIODO_INICIO);
+                    ps.setString(3, PERIODO_FIN);
+                    ps.setDouble(4, SUELDO_BASE);
+                    ps.setDouble(5, BONOS);
+                    ps.setDouble(6, DESCUENTOS);
+                    ps.setDouble(7, TOTAL_PAGO);
+                    ps.setString(8, FECHA_PAGO);
+                    ps.setInt(9, ID_NOMINA); // El ID va al final por el WHERE
             
                     int filasAfectadas = ps.executeUpdate();
                     return filasAfectadas > 0; // Retorna true si se actualizó al menos un registro
@@ -229,16 +229,16 @@ public class HMC_Conexion {
                     return false;
                 }
             }
-    public bolean EliminarNomina(int ID_NOMINA) {
+    public boolean EliminarNomina(int ID_NOMINA) {
         String sql = "DELETE FROM rh_nomina WHERE id_nomina = ?";
 
         try(Connection con = obtenerConexion(); PreparedStatement ps = con.prepareStatement(sql)){
             ps.setInt(1, ID_NOMINA);
-            int filasAfectadas = ps.executeUpadate();
+            int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
         }catch(SQLException e){
             e.printStackTrace();
-            return false
+            return false;
         }
     }
 

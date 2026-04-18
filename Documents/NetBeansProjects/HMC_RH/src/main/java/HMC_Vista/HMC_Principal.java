@@ -41,10 +41,10 @@ public class HMC_Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menuRH = new javax.swing.JMenu();
         menuBuscarEmpleado = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuDepartamentos = new javax.swing.JMenuItem();
+        menuPuestos = new javax.swing.JMenuItem();
+        menuAsistencia = new javax.swing.JMenuItem();
+        menuNomina = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -65,23 +65,25 @@ public class HMC_Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         menuRH.setText("RH");
+        menuRH.addActionListener(this::menuRHActionPerformed);
 
         menuBuscarEmpleado.setText("Empledo");
         menuBuscarEmpleado.addActionListener(this::menuBuscarEmpleadoActionPerformed);
         menuRH.add(menuBuscarEmpleado);
 
-        jMenuItem2.setText("Departamentos");
-        jMenuItem2.addActionListener(this::jMenuItem2ActionPerformed);
-        menuRH.add(jMenuItem2);
+        menuDepartamentos.setText("Departamentos");
+        menuDepartamentos.addActionListener(this::menuDepartamentosActionPerformed);
+        menuRH.add(menuDepartamentos);
 
-        jMenuItem3.setText("Puestos");
-        menuRH.add(jMenuItem3);
+        menuPuestos.setText("Puestos");
+        menuRH.add(menuPuestos);
 
-        jMenuItem4.setText("Asistencia");
-        menuRH.add(jMenuItem4);
+        menuAsistencia.setText("Asistencia");
+        menuRH.add(menuAsistencia);
 
-        jMenuItem5.setText("Nomina");
-        menuRH.add(jMenuItem5);
+        menuNomina.setText("Nomina");
+        menuNomina.addActionListener(this::menuNominaActionPerformed);
+        menuRH.add(menuNomina);
 
         jMenuBar1.add(menuRH);
 
@@ -121,7 +123,7 @@ public class HMC_Principal extends javax.swing.JFrame {
             this.content.repaint();
     }//GEN-LAST:event_menuBuscarEmpleadoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDepartamentosActionPerformed
             HMC_Departamentos detalle = new HMC_Departamentos();
 
             // 1. Definir el tamaño del panel igual al del contenedor
@@ -135,7 +137,27 @@ public class HMC_Principal extends javax.swing.JFrame {
             // 3. Refrescar la interfaz para que se pinte el cambio
             this.content.revalidate();
             this.content.repaint();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuDepartamentosActionPerformed
+
+    private void menuNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNominaActionPerformed
+            HMC_Nomina detalle = new HMC_Nomina();
+
+            // 1. Definir el tamaño del panel igual al del contenedor
+            detalle.setSize(this.content.getWidth(), this.content.getHeight());
+            detalle.setLocation(0,0);
+
+            // 2. Limpiar el contenedor principal y agregar el nuevo panel
+            this.content.removeAll();
+            this.content.add(detalle);
+
+            // 3. Refrescar la interfaz para que se pinte el cambio
+            this.content.revalidate();
+            this.content.repaint();
+    }//GEN-LAST:event_menuNominaActionPerformed
+
+    private void menuRHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuRHActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,17 +189,17 @@ public class HMC_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
     private javax.swing.JPopupMenu jPopupMenu4;
     private javax.swing.JPopupMenu jPopupMenu5;
     private javax.swing.JPopupMenu jPopupMenu6;
+    private javax.swing.JMenuItem menuAsistencia;
     private javax.swing.JMenuItem menuBuscarEmpleado;
+    private javax.swing.JMenuItem menuDepartamentos;
+    private javax.swing.JMenuItem menuNomina;
+    private javax.swing.JMenuItem menuPuestos;
     public javax.swing.JMenu menuRH;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,10 @@
  */
 package HMC_Vista;
 
+import HMC_Modelo.HMC_Conexion;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Benjamin
@@ -54,6 +58,8 @@ public class HMC_Nomina extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         txtFechaPagoNom = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtIdEmpleadoNom = new javax.swing.JTextField();
         label1 = new java.awt.Label();
         btnBuscaNom = new javax.swing.JButton();
 
@@ -78,7 +84,7 @@ public class HMC_Nomina extends javax.swing.JPanel {
         jLabel1.setText("Nomina");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("ID");
+        jLabel2.setText("ID NOMINA");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Nombre");
@@ -130,19 +136,13 @@ public class HMC_Nomina extends javax.swing.JPanel {
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel24.setText("Fecha de pago");
 
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("ID EMPLEADO");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdNom, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -171,25 +171,54 @@ public class HMC_Nomina extends javax.swing.JPanel {
                         .addComponent(txtFinPNom))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombreNom, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                            .addComponent(txtPaternoNom)
-                            .addComponent(txtMaternoNom)
-                            .addComponent(txtInicioPNom))))
+                        .addComponent(txtInicioPNom, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(231, 231, 231))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombreNom)
+                                    .addComponent(txtPaternoNom, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIdNom, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMaternoNom, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtIdEmpleadoNom, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(30, 30, 30))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdEmpleadoNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombreNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -199,11 +228,9 @@ public class HMC_Nomina extends javax.swing.JPanel {
                     .addComponent(txtPaternoNom))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtMaternoNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtMaternoNom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtInicioPNom))
@@ -262,9 +289,9 @@ public class HMC_Nomina extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
                         .addComponent(btnBuscaNom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,8 +303,10 @@ public class HMC_Nomina extends javax.swing.JPanel {
                         .addComponent(btnGuardarNom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(btnEliminarNom))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -302,6 +331,47 @@ public class HMC_Nomina extends javax.swing.JPanel {
     }
 
     private void btnNuevoNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoNomActionPerformed
+        btnBuscaNom.setEnabled(false);
+        btnEditarNom.setEnabled(false);
+        btnEliminarNom.setEnabled(false);
+        btnGuardarNom.setEnabled(true);
+        btnNuevoNom.setEnabled(true);
+
+        txtIdNom.setEnabled(false);
+        txtIdEmpleadoNom.setEnabled(true);
+        txtNombreNom.setEnabled(false);
+        txtPaternoNom.setEnabled(false);
+        txtMaternoNom.setEnabled(false);
+        txtInicioPNom.setEnabled(true);
+        txtFinPNom.setEnabled(true);
+        txtSueldoBaseNom.setEnabled(true);
+        txtBonoNom.setEnabled(true);
+        txtDesNom.setEnabled(true);
+        txtTotPagNom.setEnabled(true);
+        txtFechaPagoNom.setEnabled(true);
+
+        txtInicioPNom.setEditable(true);
+        txtFinPNom.setEditable(true);
+        txtSueldoBaseNom.setEditable(true);
+        txtBonoNom.setEditable(true);
+        txtDesNom.setEditable(true);
+        txtTotPagNom.setEditable(true);
+        txtFechaPagoNom.setEditable(true);
+
+        txtIdNom.setText("");
+        txtIdEmpleadoNom.setText("");
+        txtNombreNom.setText("");
+        txtPaternoNom.setText("");
+        txtMaternoNom.setText("");
+        txtInicioPNom.setText("");
+        txtFinPNom.setText("");
+        txtSueldoBaseNom.setText("");
+        txtBonoNom.setText("");
+        txtDesNom.setText("");
+        txtTotPagNom.setText("");
+        txtFechaPagoNom.setText("");
+        txtIdEmpleadoNom.requestFocusInWindow();
+
 
     }//GEN-LAST:event_btnNuevoNomActionPerformed
 
@@ -311,6 +381,115 @@ public class HMC_Nomina extends javax.swing.JPanel {
 
     private void btnGuardarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNomActionPerformed
 
+        try {
+            // =========================
+            // 1. DATOS GENERALES
+            // =========================
+            int id_empleado = parseEnteroSeguro(txtIdEmpleadoNom.getText().trim());
+            String inicio = txtInicioPNom.getText().trim();
+            String fin = txtFinPNom.getText().trim();
+            Double sueldoBase = parseDoubleSeguro(txtSueldoBaseNom.getText().trim());
+            Double bono = parseDoubleSeguro(txtBonoNom.getText().trim());
+            Double descuento = parseDoubleSeguro(txtDesNom.getText().trim());
+            Double totalPagado = parseDoubleSeguro(txtTotPagNom.getText().trim());
+            String fechaPago = txtFechaPagoNom.getText().trim();
+
+            // =========================
+            // 2. VALIDACIÓN BÁSICA
+            // =========================
+            if (inicio.isEmpty() || fin.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Las fechas de inicio y fin son obligatorias");
+                return;
+            }
+
+            // =========================
+            // 3. PARSEO SEGURO
+            // =========================
+            double salario = parseDoubleSeguro(txtSueldoBaseNom.getText());
+
+            if (salario < 0) {
+                JOptionPane.showMessageDialog(this, "Salario inválido");
+                return;
+            }
+
+            HMC_Conexion con = new HMC_Conexion();
+            boolean exito = false;
+
+            // =========================
+            // 4. DEFINIR OPERACIÓN
+            // =========================
+            boolean esNuevo = txtIdNom.getText().trim().isEmpty();
+
+            // =========================
+            // 5. INSERT
+            // =========================
+            if (esNuevo) {
+
+                System.out.println("Nueva nomina");
+
+                int idEmpleadoNomina = parseEnteroSeguro(txtIdEmpleadoNom.getText());
+
+                if (idEmpleadoNomina <= 0) {
+                    JOptionPane.showMessageDialog(this, "ID Empleado debe ser válido");
+                    return;
+                }
+
+                exito = con.insertarNomina(
+                        idEmpleadoNomina, inicio, fin,
+                        sueldoBase, bono, descuento, totalPagado,
+                        fechaPago
+                );
+
+                if (exito) {
+                    JOptionPane.showMessageDialog(this, "Nomina Creada con exito.");
+                }
+
+            } else {
+                // =========================
+                // 6. UPDATE
+                // =========================
+
+                System.out.println("Estas EDITANDO un usuario");
+
+                int idExistente = parseEnteroSeguro(txtIdNom.getText());
+
+                if (idExistente <= 0) {
+                    JOptionPane.showMessageDialog(this, "ID inválido");
+                    return;
+                }
+
+                exito = con.actualizarNomina(
+                        id_empleado, inicio, fin,
+                        sueldoBase, bono, descuento, totalPagado,
+                        fechaPago, idExistente
+                );
+
+                if (exito) {
+                    JOptionPane.showMessageDialog(this, "Nomina ID: " + idExistente + " actualizada.");
+                    btnEditarNom.setEnabled(false);
+                }
+            }
+
+            // =========================
+            // 7. LIMPIAR FORMULARIO
+            // =========================
+            if (exito) {
+                resetearFormulario();
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Error al guardar: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            e.printStackTrace();
+        }
+
+
     }//GEN-LAST:event_btnGuardarNomActionPerformed
 
     private void btnEditarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNomActionPerformed
@@ -319,50 +498,52 @@ public class HMC_Nomina extends javax.swing.JPanel {
 
     private void btnBuscaNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomActionPerformed
         HMC_Conexion con = new HMC_Conexion();
-        
-        int iDNominaBuscar = Integer.parseInt(txtIdNom.getText()); 
+
+        int iDNominaBuscar = Integer.parseInt(txtIdNom.getText());
         String nominaEncontrada = con.buscarNominaId(iDNominaBuscar);
 
-        if(nominaEncontrada != null && !nominaEncontrada.isEmpty()){
-            String nominaEncontradaBD[] = nominaEncontrada.spit("!");
+        if (nominaEncontrada != null && !nominaEncontrada.isEmpty()) {
+            String nominaEncontradaBD[] = nominaEncontrada.split("!");
 
             java.util.function.Function<String, String> limpiar = (str)
                     -> (str == null || str.equals("null")) ? "" : str;
-            
-            txtIdNom.setText(limpiar.apply(nominaEncontradaBD[0]));    
-            txtNombreNom.setText(limpiar.apply(nominaEncontradaBD[1]));    
-            txtPaternoNom.setText(limpiar.apply(nominaEncontradaBD[2]));    
-            txtMaternoNom.setText(limpiar.apply(nominaEncontradaBD[3]));    
-            txtInicioPNom.setText(limpiar.apply(nominaEncontradaBD[4]));    
-            txtFinPNom.setText(limpiar.apply(nominaEncontradaBD[5]));    
-            txtSueldoBaseNom.setText(limpiar.apply(nominaEncontradaBD[6]));    
-            txtBonoNom.setText(limpiar.apply(nominaEncontradaBD[7]));    
-            txtDesNom.setText(limpiar.apply(nominaEncontradaBD[8]));    
-            txtTotPagNom.setText(limpiar.apply(nominaEncontradaBD[9]));    
+
+            txtIdNom.setText(limpiar.apply(nominaEncontradaBD[0]));
+            txtIdEmpleadoNom.setText(limpiar.apply(nominaEncontradaBD[1]));
+            txtNombreNom.setText(limpiar.apply(nominaEncontradaBD[2]));
+            txtPaternoNom.setText(limpiar.apply(nominaEncontradaBD[3]));
+            txtMaternoNom.setText(limpiar.apply(nominaEncontradaBD[4]));
+            txtInicioPNom.setText(formatearFecha(limpiar.apply(nominaEncontradaBD[5])));
+            txtFinPNom.setText(formatearFecha(limpiar.apply(nominaEncontradaBD[6])));
+            txtSueldoBaseNom.setText(limpiar.apply(nominaEncontradaBD[7]));
+            txtBonoNom.setText(limpiar.apply(nominaEncontradaBD[8]));
+            txtDesNom.setText(limpiar.apply(nominaEncontradaBD[9]));
+            txtTotPagNom.setText(limpiar.apply(nominaEncontradaBD[10]));
             //txtFechaPagoNom.setText(limpiar.apply(nominaEncontradaBD[10]));    
-            txtFechaPagoNom.setText(formatearFecha(limpiar.apply(empleadoEncontradoBD[10])));
+            txtFechaPagoNom.setText(formatearFecha(limpiar.apply(nominaEncontradaBD[11])));
 
             //Activo los botones para poder editar o eliminar el valor obtenido.
             btnEditarNom.setEnabled(true);
             btnEliminarNom.setEnabled(true);
 
-        } else{
+        } else {
             JOptionPane.showMessageDialog(this, "Número de ID de nomina no encontrada.");
-            txtIdNom.setText("");    
-            txtNombreNom.setText("");    
-            txtPaternoNom.setText("");    
-            txtMaternoNom.setText("");    
-            txtInicioPNom.setText("");    
-            txtFinPNom.setText("");    
-            txtSueldoBaseNom.setText("");    
+            txtIdNom.setText("");
+            txtIdEmpleadoNom.setText("");
+            txtNombreNom.setText("");
+            txtPaternoNom.setText("");
+            txtMaternoNom.setText("");
+            txtInicioPNom.setText("");
+            txtFinPNom.setText("");
+            txtSueldoBaseNom.setText("");
             txtBonoNom.setText("");
-            txtDesNom.setText(""); 
-            txtTotPagNom.setText("");  
+            txtDesNom.setText("");
+            txtTotPagNom.setText("");
             txtFechaPagoNom.setText("");
-            txtIdNom.requestFocusInWindows();
-            
+            txtIdNom.requestFocusInWindow();
+
         }
-        
+
     }//GEN-LAST:event_btnBuscaNomActionPerformed
 
 
@@ -384,12 +565,14 @@ public class HMC_Nomina extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
     private javax.swing.JTextField txtBonoNom;
     private javax.swing.JTextField txtDesNom;
     private javax.swing.JTextField txtFechaPagoNom;
     private javax.swing.JTextField txtFinPNom;
+    private javax.swing.JTextField txtIdEmpleadoNom;
     private javax.swing.JTextField txtIdNom;
     private javax.swing.JTextField txtInicioPNom;
     private javax.swing.JTextField txtMaternoNom;
@@ -398,4 +581,66 @@ public class HMC_Nomina extends javax.swing.JPanel {
     private javax.swing.JTextField txtSueldoBaseNom;
     private javax.swing.JTextField txtTotPagNom;
     // End of variables declaration//GEN-END:variables
+
+    private int parseEnteroSeguro(String valor) {
+        try {
+            if (valor == null || valor.trim().isEmpty()) {
+                return 0;
+            }
+            return Integer.parseInt(valor.trim());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    private double parseDoubleSeguro(String valor) {
+        try {
+            if (valor == null || valor.trim().isEmpty()) {
+                return 0;
+            }
+            return Double.parseDouble(valor.trim());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    public void resetearFormulario() {
+        // 1. Limpiar todos los textos
+        txtIdNom.setText("");
+        txtIdEmpleadoNom.setText("");
+        txtNombreNom.setText("");
+        txtPaternoNom.setText("");
+        txtMaternoNom.setText("");
+        txtInicioPNom.setText("");
+        txtFinPNom.setText("");
+        txtSueldoBaseNom.setText("");
+        txtBonoNom.setText("");
+        txtDesNom.setText("");
+        txtTotPagNom.setText("");
+        txtFechaPagoNom.setText("");
+        txtIdNom.setText("");
+
+        // 2. Bloquear los campos de texto (para que no escriban sin darle a 'Nuevo')
+        
+        txtIdNom.setEnabled(true); 
+        txtIdEmpleadoNom.setEnabled(false);
+        txtNombreNom.setEnabled(false);
+        txtPaternoNom.setEnabled(false);
+        txtMaternoNom.setEnabled(false);
+        txtInicioPNom.setEnabled(false);
+        txtFinPNom.setEnabled(false);
+        txtSueldoBaseNom.setEnabled(false);
+        txtBonoNom.setEnabled(false);
+        txtDesNom.setEnabled(false);
+        txtTotPagNom.setEnabled(false);
+        txtFechaPagoNom.setEnabled(false);
+
+        // 3. Gestionar los botones
+        btnNuevoNom.setEnabled(true);    // Puede crear uno nuevo
+        btnBuscaNom.setEnabled(true);   // Puede buscar
+        btnGuardarNom.setEnabled(false); // No puede guardar nada vacío
+
+        // 4. Cursor al campo de búsqueda
+        txtIdNom.requestFocusInWindow();
+    }
 }
