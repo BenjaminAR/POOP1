@@ -376,7 +376,21 @@ public class HMC_Nomina extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoNomActionPerformed
 
     private void btnEliminarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarNomActionPerformed
+        HMC_Conexion con = new HMC_Conexion();
 
+        int iDNomina = Integer.parseInt(txtIdNom.getText());
+        
+        try {
+            
+            boolean eliminarNomina = con.EliminarNomina(iDNomina);
+            JOptionPane.showMessageDialog(this, "Nomina eliminada con ID: " + iDNomina);
+            resetearFormulario();
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al eliminar nomina: " + e);
+        }
     }//GEN-LAST:event_btnEliminarNomActionPerformed
 
     private void btnGuardarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNomActionPerformed
@@ -493,7 +507,37 @@ public class HMC_Nomina extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGuardarNomActionPerformed
 
     private void btnEditarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNomActionPerformed
-
+        btnNuevoNom.setEnabled(false);
+        btnBuscaNom.setEnabled(false);
+        btnGuardarNom.setEnabled(true);
+        btnEliminarNom.setEnabled(false);
+        
+        txtIdNom.setEnabled(false);
+        txtIdEmpleadoNom.setEnabled(true);
+        txtNombreNom.setEnabled(false);
+        txtMaternoNom.setEnabled(false);
+        txtPaternoNom.setEnabled(false);
+        txtInicioPNom.setEnabled(true);
+        txtFinPNom.setEnabled(true);
+        txtSueldoBaseNom.setEnabled(true);
+        txtBonoNom.setEnabled(true);
+        txtDesNom.setEnabled(true);
+        txtTotPagNom.setEnabled(true);
+        txtFechaPagoNom.setEnabled(true);
+        
+        txtIdNom.setEditable(false);
+        txtIdEmpleadoNom.setEditable(true);
+        txtNombreNom.setEditable(false);
+        txtMaternoNom.setEditable(false);
+        txtPaternoNom.setEditable(false);
+        txtInicioPNom.setEditable(true);
+        txtFinPNom.setEditable(true);
+        txtSueldoBaseNom.setEditable(true);
+        txtBonoNom.setEditable(true);
+        txtDesNom.setEditable(true);
+        txtTotPagNom.setEditable(true);
+        txtFechaPagoNom.setEditable(true);
+                
     }//GEN-LAST:event_btnEditarNomActionPerformed
 
     private void btnBuscaNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomActionPerformed
@@ -618,11 +662,11 @@ public class HMC_Nomina extends javax.swing.JPanel {
         txtDesNom.setText("");
         txtTotPagNom.setText("");
         txtFechaPagoNom.setText("");
-        txtIdNom.setText("");
 
         // 2. Bloquear los campos de texto (para que no escriban sin darle a 'Nuevo')
         
         txtIdNom.setEnabled(true); 
+        txtIdNom.setEditable(true);         
         txtIdEmpleadoNom.setEnabled(false);
         txtNombreNom.setEnabled(false);
         txtPaternoNom.setEnabled(false);

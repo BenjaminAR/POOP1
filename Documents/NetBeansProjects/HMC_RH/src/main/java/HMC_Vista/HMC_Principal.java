@@ -41,9 +41,6 @@ public class HMC_Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menuRH = new javax.swing.JMenu();
         menuBuscarEmpleado = new javax.swing.JMenuItem();
-        menuDepartamentos = new javax.swing.JMenuItem();
-        menuPuestos = new javax.swing.JMenuItem();
-        menuAsistencia = new javax.swing.JMenuItem();
         menuNomina = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
@@ -70,16 +67,6 @@ public class HMC_Principal extends javax.swing.JFrame {
         menuBuscarEmpleado.setText("Empledo");
         menuBuscarEmpleado.addActionListener(this::menuBuscarEmpleadoActionPerformed);
         menuRH.add(menuBuscarEmpleado);
-
-        menuDepartamentos.setText("Departamentos");
-        menuDepartamentos.addActionListener(this::menuDepartamentosActionPerformed);
-        menuRH.add(menuDepartamentos);
-
-        menuPuestos.setText("Puestos");
-        menuRH.add(menuPuestos);
-
-        menuAsistencia.setText("Asistencia");
-        menuRH.add(menuAsistencia);
 
         menuNomina.setText("Nomina");
         menuNomina.addActionListener(this::menuNominaActionPerformed);
@@ -122,22 +109,6 @@ public class HMC_Principal extends javax.swing.JFrame {
             this.content.revalidate();
             this.content.repaint();
     }//GEN-LAST:event_menuBuscarEmpleadoActionPerformed
-
-    private void menuDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDepartamentosActionPerformed
-            HMC_Departamentos detalle = new HMC_Departamentos();
-
-            // 1. Definir el tamaño del panel igual al del contenedor
-            detalle.setSize(this.content.getWidth(), this.content.getHeight());
-            detalle.setLocation(0,0);
-
-            // 2. Limpiar el contenedor principal y agregar el nuevo panel
-            this.content.removeAll();
-            this.content.add(detalle);
-
-            // 3. Refrescar la interfaz para que se pinte el cambio
-            this.content.revalidate();
-            this.content.repaint();
-    }//GEN-LAST:event_menuDepartamentosActionPerformed
 
     private void menuNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNominaActionPerformed
             HMC_Nomina detalle = new HMC_Nomina();
@@ -195,11 +166,8 @@ public class HMC_Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu4;
     private javax.swing.JPopupMenu jPopupMenu5;
     private javax.swing.JPopupMenu jPopupMenu6;
-    private javax.swing.JMenuItem menuAsistencia;
     private javax.swing.JMenuItem menuBuscarEmpleado;
-    private javax.swing.JMenuItem menuDepartamentos;
     private javax.swing.JMenuItem menuNomina;
-    private javax.swing.JMenuItem menuPuestos;
     public javax.swing.JMenu menuRH;
     // End of variables declaration//GEN-END:variables
 }

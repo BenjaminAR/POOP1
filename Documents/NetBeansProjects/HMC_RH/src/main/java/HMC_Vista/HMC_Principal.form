@@ -69,24 +69,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBuscarEmpleadoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuDepartamentos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Departamentos"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuDepartamentosActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuPuestos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Puestos"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuAsistencia">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Asistencia"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuNomina">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nomina"/>
